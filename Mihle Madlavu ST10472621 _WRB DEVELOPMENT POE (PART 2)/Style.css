@@ -1,0 +1,844 @@
+/* ==========================
+   Style.css
+   Global styling for all pages
+   ========================== */
+
+/* ===== Reset / Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 90px; /* control header height in one place */
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-height); /* matches header height */
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #444;
+}
+/* ==========================
+   Global Background Upgrade
+   ========================== */
+body {
+  margin: 0;
+  padding-top: 100px; /* keeps content below nav */
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(180deg, #ffffff, #fff5fa); /* clean white to soft pink */
+  color: #444;
+}
+
+
+/* Prevent navbar from covering content */
+main {
+  padding-top: 100px; /* adjust based on your header height */
+}
+
+/* ==========================
+   Header & Navigation
+   ========================== */
+header {
+  background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  backdrop-filter: blur(6px);  /* adds a glass effect */
+  border-bottom: 2px solid #e4007c;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+/* When you scroll down, make nav solid */
+.scrolled header {
+  background-color: #fff;
+  backdrop-filter: none;
+}
+
+/* Navigation links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover underline effect */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #e4007c;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after { width: 100%; }
+nav ul li a:hover { color: #e4007c; }
+nav ul li a:focus { outline: 2px dashed #e4007c; outline-offset: 4px; }
+
+/* Hamburger menu button */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  header { flex-wrap: wrap; padding: 0.75rem 1rem; }
+  nav { width: 100%; display: none; flex-direction: column; background: #fff; border-top: 2px solid #e4007c; margin-top: 0.5rem; padding: 1rem 0; }
+  nav ul { flex-direction: column; gap: 1.25rem; text-align: center; }
+  .menu-toggle { display: block; }
+  nav.active { display: flex; }
+}
+
+/* Active link */
+nav ul li a.active {
+  color: #e4007c !important;
+  font-weight: 700;
+}
+nav ul li a.active::after { width: 100% !important; }
+
+/* ==========================
+   Typography
+   ========================== */
+h1, h2, h3 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #111;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 1.5vw + 0.8rem, 2rem); font-weight: 600; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* ==========================
+   Layout & Containers
+   ========================== */
+main { display: block; margin-top: 80px; }
+.container { width: min(90%, 1200px); margin: 0 auto; padding: 1rem; }
+section { margin-bottom: 3rem; }
+
+/* ==========================
+   Product Page Styling (Merged Grid)
+   ========================== */
+.products-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.products-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #e4007c;
+  text-align: center;
+}
+
+.products-section p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #444;
+  text-align: center;
+}
+
+/* Unified grid for products + videos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.product-card h3 { font-size: 1rem; margin: 0.3rem 0; }
+.product-card .price { color: #e4007c; font-weight: 600; }
+
+/* Video cards */
+.product-card.video-card video {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto;
+}
+
+/* ==========================
+   Services Page
+   ========================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-card i {
+  font-size: 2.5rem;
+  color: #e4007c;
+  margin-bottom: 1rem;
+}
+
+.service-card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.service-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border: 2px solid #e4007c;
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================
+   Enquiry Form
+   ========================== */
+.enquiry-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: #fafafa;
+}
+.enquiry-form label { font-weight: 600; margin-bottom: 0.25rem; }
+.enquiry-form input,
+.enquiry-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.enquiry-form button {
+  background-color: #e4007c;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.enquiry-form button:hover { background-color: #c20065; }
+
+/* ==========================
+   Contact Page
+   ========================== */
+.contact-info p { font-size: 1rem; margin: 0.5rem 0; }
+.contact-info i { color: #e4007c; margin-right: 0.5rem; }
+
+.social-links { margin: 2rem 0; text-align: center; }
+.social-links a {
+  color: #e4007c;
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-links a:hover { color: #111; transform: scale(1.2); }
+
+/* Map */
+.map { margin: 2rem 0; text-align: center; }
+.map iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+/* ==========================
+   Social Media Buttons
+   ========================== */
+.social-links .social-btn {
+  display: inline-block;
+  margin: 0 0.6rem;
+  font-size: 1.9rem;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Keep icons white inside */
+.social-links .social-btn i {
+  vertical-align: middle;
+  color: #fff;
+  font-size: 1.15em;
+}
+
+/* Brand colors */
+.social-links .social-btn.facebook { background: #1877F2; }   /* Facebook Blue */
+.social-links .social-btn.twitter { background: #1DA1F2; }    /* Twitter/X Blue */
+.social-links .social-btn.instagram {
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}  /* Instagram Gradient */
+.social-links .social-btn.telegram { background: #0088cc; }   /* Telegram Blue */
+.social-links .social-btn.mail { background: #e4007c; }       /* Brand Pink */
+
+/* Hover effect */
+.social-links .social-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+/* ==========================
+   Footer (Polished)
+   ========================== */
+.site-footer {
+  background: linear-gradient(135deg, #111, #2a0020, #111); /* subtle dark gradient */
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 4px solid #e4007c; /* ties it back to brand pink */
+}
+
+.site-footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer p {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Footer links */
+.site-footer .footer-links a {
+  color: #e4007c;
+  margin: 0 0.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer .footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Social icons */
+.site-footer .footer-social a {
+  color: #fff;
+  margin: 0 0.6rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.site-footer .footer-social a:hover {
+  color: #e4007c;
+  transform: scale(1.2);
+}
+
+
+/* ==========================
+   Back Button
+   ========================== */
+.back-btn {
+  display: inline-block;
+  background-color: #e4007c;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin: 1rem 0 0 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.back-btn:hover {
+  background-color: #c20065;
+  transform: translateX(-3px);
+}
+header .back-btn { margin: 0.4rem 0 0 0; font-size: 1rem; }
+
+/* ==========================
+   Buttons & Links
+   ========================== */
+button, input[type="submit"] {
+  background-color: #e4007c;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover, input[type="submit"]:hover {
+  background-color: #c20065;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+a { color: #e4007c; text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #c20065; border-bottom: 2px solid #c20065; }
+
+/* ==========================
+   Responsive Design
+   ========================== */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  body { font-size: 0.95rem; }
+  header img { max-width: 70px; }
+  nav ul { gap: 1.2rem; }
+  .container { width: 95%; padding: 0.8rem; }
+  .products-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  body { font-size: 0.9rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+
+  .products-grid { grid-template-columns: 1fr; }
+  .product-card.video-card video { max-width: 100%; }
+
+  .enquiry-form, .contact-form { width: 100%; padding: 1rem; }
+
+  .back-btn { font-size: 1rem; padding: 0.3rem 0.7rem; }
+  .site-footer { padding: 1rem; font-size: 0.9rem; }
+  .site-footer .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+}
+
+/* Small Phones (≤ 480px) */
+@media (max-width: 480px) {
+  h1 { font-size: 1.4rem; }
+  nav ul { gap: 0.8rem; }
+  .social-links .social-btn { width: 38px; height: 38px; font-size: 1.2rem; }
+}
+/* ==========================
+   About Us Page 
+   ========================== */
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about-section h2,
+.about-section h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #e4007c;
+}
+
+.about-img {
+  max-width: 320px;   /* smaller image size */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 1rem 1rem 0;   /* space between text & image */
+  float: left;             /* keep images left-aligned */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-section p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Clear float so layout doesn’t break */
+.about-section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* On small screens, reset float */
+@media (max-width: 768px) {
+  .about-img {
+    float: none;
+    display: block;
+    margin: 1rem auto;
+    max-width: 90%;
+  }
+}
+
+/* ==========================
+   Services Pages (Images)
+   ========================== */
+.service-img {
+  max-width: 420px;   /* a bit bigger */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1rem 0;          /* spacing top/bottom only */
+  display: inline-block;   /* keeps them left aligned */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* On smaller screens, center images so they don’t overflow */
+@media (max-width: 768px) {
+  .service-img {
+    max-width: 90%;  
+    display: block;
+    margin: 1rem auto;
+  }
+}
+/* ==========================
+   Services Page 
+   ========================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns (square layout) */
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Service card icons */
+.service-card i {
+  font-size: 2.5rem;
+  color: #e4007c;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Service card titles */
+.service-card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover effects */
+.service-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border: 2px solid #e4007c;
+  background: #fff;
+}
+
+.service-card:hover i {
+  transform: scale(1.2) rotate(-5deg);
+  color: #c20065;
+}
+
+.service-card:hover h2 {
+  transform: translateY(-4px);
+  color: #e4007c;
+  text-shadow: 0 2px 8px rgba(228, 0, 124, 0.4);
+}
+
+/* Active service card highlight */
+.delivery-page .service-card[href="Delivery.html"],
+.installation-page .service-card[href="Installation.html"],
+.repair-page .service-card[href="Repair.html"],
+.warranty-page .service-card[href="Warranty.html"] {
+  border: 2px solid #e4007c;
+  background: #fff0f7; /* soft pink highlight */
+  box-shadow: 0 0 14px rgba(228, 0, 124, 0.3);
+  transform: scale(1.03);
+}
+
+.delivery-page .service-card[href="Delivery.html"] i,
+.installation-page .service-card[href="Installation.html"] i,
+.repair-page .service-card[href="Repair.html"] i,
+.warranty-page .service-card[href="Warranty.html"] i {
+  color: #e4007c;
+  transform: scale(1.25);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==========================
+   Contact Form Fix 
+   ========================== */
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;         /* bigger padding */
+  font-size: 1.05rem;    /* larger text */
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  min-height: 150px;     /* taller message box */
+  resize: vertical;      /* allow resizing */
+}
+
+.contact-form button {
+  padding: 0.9rem 1.5rem; 
+  font-size: 1.05rem;
+}
+/* ==========================
+   Hero Banner
+   ========================== */
+.hero {
+  background: linear-gradient(rgba(228, 0, 124, 0.8), rgba(228, 0, 124, 0.8)),
+              url("IMAGES/welcome.jpg") center/cover no-repeat; /* fallback: welcome.jpg */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero-content .tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: #e4007c;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #f7f7f7;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   Features Grid
+   ========================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.feature {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #e4007c;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+/* Push content down on all pages except the Home Page */
+body:not(.home) main {
+  padding-top: 120px; /* adjust this if the header is taller/shorter */
+}
+/* Fix Back Button overlap with nav */
+.back-btn {
+  margin-top: 120px; /* push it below fixed nav */
+  display: inline-block;
+  background-color: #e4007c;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 2; /* makes it clickable */
+}
+
+.back-btn:hover {
+  background-color: #c20065;
+  transform: translateX(-3px);
+}
+/* ==========================
+   Hero Section (Home Page)
+   ========================== */
+.hero {
+  margin-top: 0;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #e4007c, #c20065);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;   /* ⬅️ increased from 300px to 400px */
+  box-sizing: border-box;
+}
+
+
+.home main {
+  padding-top: 0; /* remove extra padding on home page */
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  background-color: #fff;
+  color: #e4007c;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: #f4f4f4;
+  transform: translateY(-3px);
+}
+/* ==========================
+   Section Container Polish
+   ========================== */
+.container,
+.products-section,
+.service-card,
+.enquiry-form,
+.contact-form {
+  background: #fff;               /* clean white cards */
+  border-radius: 12px;            /* smooth corners */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08); /* softer pop */
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for interactivity */
+.products-section:hover,
+.service-card:hover,
+.enquiry-form:hover,
+.contact-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+
+
+

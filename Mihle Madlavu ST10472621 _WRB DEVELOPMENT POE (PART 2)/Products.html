@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME RETAIL STORE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="IMAGES/Game pic.jpg" alt="Game Store Logo" width="200">
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="Home Page.html">Home Page</a></li>
+        <li><a href="About Us.html">About Us</a></li>
+        <li><a href="Products.html" class="active">Products</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Enquiry.html">Enquiry</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="container">
+    <h1>Our Products</h1>
+
+    <!-- Electronics -->
+    <section class="products-section">
+      <h2>Electronics & Appliances</h2>
+      <p>Game offers a wide range of electronics and household appliances, including TVs, laptops, smartphones, refrigerators, washing machines, and small kitchen appliances.</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="IMAGES/smart tv.jpg" alt="Smart TV">
+          <h3>Smart TV</h3>
+          <p class="price">R5,999</p>
+        </div>
+
+        <div class="product-card">
+          <img src="IMAGES/laptop.jpg" alt="Laptop">
+          <h3>Laptop</h3>
+          <p class="price">R7,499</p>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/Download.mp4" type="video/mp4">
+            Your browser does not support video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Groceries -->
+    <section class="products-section">
+      <h2>Groceries</h2>
+      <p>Beyond electronics, Game also sells everyday groceries, making it a one-stop shop for families.</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="IMAGES/grocery.webp" alt="Groceries">
+          <h3>Family Groceries</h3>
+          <p class="price">From R50</p>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/food.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Furniture -->
+    <section class="products-section">
+      <h2>Furniture & Home</h2>
+      <p>Game stocks furniture and home essentials such as sofas, dining sets, beds, and décor items.</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="IMAGES/3-seater sofa.webp" alt="Sofa">
+          <h3>3-Seater Sofa</h3>
+          <p class="price">R3,999</p>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/home.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/home (2).mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports -->
+    <section class="products-section">
+      <h2>Sports & Outdoor</h2>
+      <p>Game provides sports equipment, camping essentials, bicycles, and outdoor accessories.</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="IMAGES/mountain bicycle.jpg" alt="Mountain Bike">
+          <h3>Mountain Bike</h3>
+          <p class="price">R2,499</p>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/outdoor.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="product-card video-card">
+          <video controls>
+            <source src="IMAGES/outdoor (2).mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2024 Game Retail Store. All Rights Reserved.</p>
+
+      <div class="footer-links">
+        <a href="Home Page.html">Home</a> |
+        <a href="About Us.html">About Us</a> |
+        <a href="Products.html">Products</a> |
+        <a href="Services.html">Services</a> |
+        <a href="Enquiry.html">Enquiry</a> |
+        <a href="Contact Us.html">Contact Us</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:info@gamestore.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+  <script>
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 50) {
+      document.body.classList.add("scrolled");
+    } else {
+      document.body.classList.remove("scrolled");
+    }
+  });
+</script>
+</body>
+</html>
