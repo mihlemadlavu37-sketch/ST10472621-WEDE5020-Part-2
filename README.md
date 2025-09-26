@@ -24,6 +24,8 @@ Tablet: 769px – 1024px → Adjusted font sizes, smaller gaps.
 Mobile: ≤ 768px → Single-column layouts, hamburger navigation.
 Small phones: ≤ 480px → Optimized typography and button sizes.
 
+IN the the Part 2 file there is a folder that consists of three screenshots which are to demonstrate how the website are going to look like on a mobile device, teblet and on a pc. On a smart phone I took a screenshot on  how it would look on an iPhone 14 Pro Max, and on a teblet I took a screenshot of how it would look on an iPad Pro and also on a pc I creenshot of how it would look on a Lenovo pc (but it dose not show which model as I just took a creenshot of my whole screen).
+
 Changelog:
 
 2025-09-05 — Part 2: Base Styles
