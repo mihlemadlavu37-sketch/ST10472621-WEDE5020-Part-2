@@ -24,7 +24,8 @@ Tablet: 769px – 1024px → Adjusted font sizes, smaller gaps.
 Mobile: ≤ 768px → Single-column layouts, hamburger navigation.
 Small phones: ≤ 480px → Optimized typography and button sizes.
 
-Changelog
+Changelog:
+
 2025-09-05 — Part 2: Base Styles
 Added external stylesheet (css/style.css) and linked it to all pages.
 Implemented base styles and CSS variables.
