@@ -62,3 +62,21 @@ Styled social icons with brand colors.
 
 Author
 Name – [Mihle Madlavu]
+
+
+References 
+
+Google Fonts. (2024). Inter & Poppins font families. Available at: https://fonts.google.com/
+ (Accessed: 26 September 2025).
+
+Font Awesome. (2024). Font Awesome Free Icons v6.5.0. Available at: https://fontawesome.com/
+ (Accessed: 26 September 2025).
+
+Unsplash. (2024). Free stock images for web projects. Available at: https://unsplash.com/
+ (Accessed: 26 September 2025).
+
+W3Schools. (2024). HTML, CSS and Responsive Web Design Tutorials. Available at: https://www.w3schools.com/
+ (Accessed: 26 September 2025).
+
+Mozilla Developer Network (MDN). (2024). CSS Grid and Flexbox Documentation. Available at: https://developer.mozilla.org/
+ (Accessed: 26 September 2025).
